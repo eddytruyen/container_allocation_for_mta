@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: tomcat-controller
+spec:
+  replicas: 1
+  # selector identifies the set of Pods that this
+  # replication controller is responsible for managing
+  selector:
+    app: tomcat
+  # podTemplate defines the 'cookie cutter' used for creating
+  # new pods when necessary
+  template:
+    metadata:
+      labels:
+        # Important: these labels need to match the selector above
+        # The api server enforces this constraint.
+        app: tomcat
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcat:8.0-jre7
+        ports:
+        - containerPort: 8080
+#        resources:
+#          limits:
+#            cpu: 2
+#            memory: 1Gi
+#          requests:
+#            cpu: 1
+#            memory: 200Mi

@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  creationTimestamp: 2016-08-18T20:03:43Z
+  name: mylimits
+  namespace: tomcat
+  resourceVersion: "140"
+  selfLink: /api/v1/namespaces/tomcat/limitranges/mylimits
+  uid: dd853c7f-657e-11e6-ac25-fa163e1fdbb4
+spec:
+  limits:
+  - max:
+      cpu: 125m
+      memory: 512Mi
+    min:
+      cpu: 75m
+      memory: 256Mi
+    type: Pod
+  - default:
+      cpu: 125m
+      memory: 512Mi
+    defaultRequest:
+      cpu: 75m
+      memory: 256Mi
+    max:
+      cpu: 125m
+      memory: 512Mi
+    min:
+      cpu: 75m
+      memory: 256Mi
+    type: Container

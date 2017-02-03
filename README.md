@@ -5,9 +5,9 @@ This github repository is an addition to our paper submission entitled: "Contain
 The aim of the experiment is to demonstrate the third container allocation strategy in Kubernetes: Separate Namespace / SLA class.
 
 # Experimental setup
-We have setup a Kubernetes cluster with 6 worker nodes using the docker-multinode project: https://github.com/kubernetes/kube-deploy/tree/master/docker-multinode
+We have setup a Kubernetes cluster with 6 worker nodes using the docker-multinode project: https://github.com/kubernetes/kube-deploy/tree/master/docker-multinode. Kubernetes version 1.3.4 has been used.
 
-This cluster has been installed on Ubuntu 14.04 virtual machines that run in an Openstack private cloud with the following properties:
+This cluster has been installed on Ubuntu 14.04 virtual machines that ru.4n in an Openstack private cloud with the following properties:
 * Openstack version Kilo installed on 9 droplets (each with 16 cpu-cores). There is no VM pinning. Other users are running workloads on the Openstack cloud
 * Each Ubuntu VM is configured of flavor c2m2 (2 virtual cpu and 2 GB of ram) 
 
@@ -18,7 +18,7 @@ As test service we haved used a tomcat webservice: https://github.com/eddytruyen
 We configure three SLA classes by associating different requests and limits to each Namespace: see https://github.com/eddytruyen/container_allocation_for_mta/tree/master/tomcat-sla/slas
 
 # Running the experiment
-We setup 3 tomcat services each with 5 replicas. Each tomcat service belongs to a different SLA class (gold, silver, bronze). To each tomcat service 106 GET requests are concurrently sent from the Kubernetes Master node. The timings in the table are measured at the client side using curl and report the time when the first byte of response is received.
+We setup 3 tomcat services each with 5 replicas. Each tomcat service belongs to a different SLA class (gold, silver, bronze). To each tomcat service 1 million GET requests are concurrently sent from the Kubernetes Master node. The timings in the table are measured at the client side using curl and report the time when the first byte of response is received.
 
 To deploy the experiment execute `./deploy_experiment.sh`
 

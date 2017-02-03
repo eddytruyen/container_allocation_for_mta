@@ -18,7 +18,7 @@ As test service we haved used a tomcat webservice: https://github.com/eddytruyen
 We configure three SLA classes by associating different requests and limits to each Namespace: see https://github.com/eddytruyen/container_allocation_for_mta/tree/master/tomcat-sla/slas
 
 # Running the experiment
-We setup 3 tomcat services each with 5 replicas. Each tomcat service belongs to a different SLA class (gold, silver, bronze). To each tomcat service 106 GET requests are concurrently sent from a remote client. The timings in the table are measured at the client side using curl and report the time when the first byte of response is received.
+We setup 3 tomcat services each with 5 replicas. Each tomcat service belongs to a different SLA class (gold, silver, bronze). To each tomcat service 106 GET requests are concurrently sent from the Kubernetes Master node. The timings in the table are measured at the client side using curl and report the time when the first byte of response is received.
 
 To deploy the experiment execute `./deploy_experiment.sh`
 
@@ -29,5 +29,3 @@ To tear down the experiment execture `./teardown_experiment.sh`
 Collected experiment data and analysis of data as presented in Figure 4 of the paper is available at https://github.com/eddytruyen/container_allocation_for_mta/tree/master/tomcat-sla/experiment_data_25082016
 
 
-
-d

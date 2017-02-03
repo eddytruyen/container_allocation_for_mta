@@ -8,8 +8,9 @@ The aim of the experiment is to demonstrate the third container allocation strat
 We have setup a Kubernetes cluster with 6 worker nodes using the docker-multinode project: https://github.com/kubernetes/kube-deploy/tree/master/docker-multinode. Kubernetes version 1.3.4 has been used.
 
 This cluster has been installed on Ubuntu 14.04 virtual machines that ru.4n in an Openstack private cloud with the following properties:
-* Openstack version Kilo installed on 9 droplets (each with 16 cpu-cores). There is no VM pinning. Other users are running workloads on the Openstack cloud
+* Openstack version Liberty is installed on 8 droplets (each with 16 cpu-cores). There is no VM pinning. Other users are running workloads on the Openstack cloud
 * Each Ubuntu VM is configured of flavor c2m2 (2 virtual cpu and 2 GB of ram) 
+* At the moment of the performance evaluation, the Openstack cloud is overcommitted: https://github.com/eddytruyen/container_allocation_for_mta/blob/master/tomcat-sla/Openstack.JPG
 
 Docker has been installed on each node with the `./dockerinstall` script. 
 

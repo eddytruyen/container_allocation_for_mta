@@ -1,13 +1,13 @@
-# Container allocation strategies for multi-tenant SaaS applications
+# Container orchestration for multi-tenant SaaS
 
-This github repository is an addition to our paper submission entitled: "Container orchestration for configurable performance isolation in multi-tenant SaaS." It contains the code and data of the experiment presented in Figure 4 of the paper.
+This github repository is an addition to our manuscript submission entitled: "Container orchestration for multi-tenant SaaS." It contains the code and data of the experiment presented in Figure 4 of the article.
 
 The aim of the experiment is to demonstrate the third container allocation strategy in Kubernetes: Separate Namespace / SLA class.
 
 # Experimental setup
 We have setup a Kubernetes cluster with 6 worker nodes using the docker-multinode project: https://github.com/kubernetes/kube-deploy/tree/master/docker-multinode. Kubernetes version 1.3.4 has been used.
 
-This cluster has been installed on Ubuntu 14.04 virtual machines that ru.4n in an Openstack private cloud with the following properties:
+This cluster has been installed on 7 Ubuntu 14.04 virtual machines that run in an Openstack private cloud with the following properties:
 * Openstack version Liberty is installed on 8 droplets (each with 16 cpu-cores). There is no VM pinning. Other users are running workloads on the Openstack cloud
 * Each Ubuntu VM is configured of flavor c2m2 (2 virtual cpu and 2 GB of ram) 
 * At the moment of the performance evaluation, the Openstack cloud is overcommitted: https://github.com/eddytruyen/container_allocation_for_mta/blob/master/tomcat-sla/Openstack.JPG
@@ -25,7 +25,7 @@ To deploy the experiment execute `./deploy_experiment.sh`
 
 To run the experiment execute `./run_experiment.sh`
 
-To tear down the experiment execture `./teardown_experiment.sh`
+To tear down the experiment execute `./teardown_experiment.sh`
 
 Collected experiment data and analysis of data as presented in Figure 4 of the paper is available at https://github.com/eddytruyen/container_allocation_for_mta/tree/master/tomcat-sla/experiment_data_25082016
 
